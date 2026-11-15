@@ -7,8 +7,11 @@
     <uses-permission android:name="android.car.permission.CAR_POWERTRAIN" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
-    <application android:label="렛츠 플레오" android:theme="@android:style/Theme.Material.NoActionBar" android:allowBackup="false">
-        <uses-library android:name="android.car" android:required="true" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <application android:label="${appLabel}" android:theme="@android:style/Theme.Material.NoActionBar" android:allowBackup="false" android:usesCleartextTraffic="${cleartextTraffic}">
+        <uses-library android:name="android.car" android:required="false" />
         <meta-data android:name="com.android.automotive" android:resource="@xml/automotive_app_desc" />
         <activity android:name=".MainActivity" android:exported="true">
             <meta-data android:name="distractionOptimized" android:value="true" />
@@ -18,5 +21,6 @@
             </intent-filter>
         </activity>
         <service android:name=".TripProbeService" android:exported="false" android:foregroundServiceType="location" />
+        <service android:name=".TripSyncJobService" android:exported="true" android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 </manifest>

@@ -6,7 +6,9 @@
 .gradle/
 .kotlin/
 .android/
+.android-mobile/
 .avd/
+.godot/
 .test-runtime/
 .runtime/
 local.properties
@@ -15,6 +17,7 @@ local.*.properties
 # Build outputs and dependency caches
 build/
 out/
+dist/
 node_modules/
 .venv/
 venv/
@@ -53,3 +56,9 @@ google-services.json
 # Local QA output; source tests and approved demos stay versioned
 test-results/
 coverage/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Local captures and execution transcripts; selected submission evidence is published separately.
+verification/
